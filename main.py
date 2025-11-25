@@ -3,19 +3,21 @@ from operators import *
 def main():
     print("Hello! Welcome to my calculator.")
     name = input("Enter your name: " )
-    print(f"Hi, {name}!")
+    print(f"\nHi, {name}!")
+    
     first_num = input("Enter your first number.\n")
-    while first_num != int:
-        print("\nINVALID NUMBER.\nTry again.")
-        first_num = input()
-    operator = input("Enter your operation.\n")
-    if operator != "+" or "-" or "*" or "/":
-        print("\nINVALID OPERATOR.\nEXITING...")
-        return
-    second_num = input("Enter your second number.\n")
-    if second_num != int:
-        print("\nINVALID NUMBER.\nEXITING...")
-        return
-    print(f"The answer is {solution(int(first_num), operator, int(second_num))}.")
+    
+    operator = input("\nEnter your operation.\n")
+    while operator not in ["+", "-", "*", "/"]:
+        print("\nINVALID OPERATOR.\nTry again.")
+        operator = input()
+
+    second_num = input("\nEnter your second number.\n")
+
+    try:
+        print(f"\nThe answer is {solution(int(first_num), operator, int(second_num))}.")
+    except ValueError:
+        print(f'\nIVALID PROBLEM: "{first_num} {operator} {second_num}"\nEXITING...')
+
 if __name__ == "__main__":
     main()
