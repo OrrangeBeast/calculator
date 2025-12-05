@@ -1,3 +1,4 @@
+from decimal import Decimal
 import sys
 
 def get_input(message):
@@ -5,14 +6,14 @@ def get_input(message):
     if answer.lower() == "quit":
         print("\nUSER HAS QUIT.\nEXITING...")
         sys.exit()
-    return answer
+    return answer.strip()
 
 def get_solution(num_1, operator, num_2):
     if operator == "+":
-        return num_1 + num_2
+        return Decimal(num_1) + Decimal(num_2)
     if operator == "-":
-        return num_1 - num_2
+        return Decimal(num_1) - Decimal(num_2)
     if operator == "*":
-        return num_1 * num_2
+        return Decimal(num_1) * Decimal(num_2)
     if operator == "/":
-        return num_1 / num_2
+        return Decimal(num_1) / Decimal(num_2)
